@@ -9,23 +9,6 @@ It consists of:
 - React (Vite) frontend
 - CSV file storage (no database)
 
----
-
-## Project Structure
-
-transaction/
-├── backend/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── transactions.csv
-└── frontend/
-    ├── src/
-    │   ├── components/
-    │   ├── hooks/
-    │   ├── api/
-    │   └── styles/
-    ├── App.jsx
-    └── main.jsx
 
 ---
 
