@@ -192,10 +192,13 @@ http://localhost:5173
 
 ## Possible Improvements
 
-- Add real database (PostgreSQL / MongoDB)
-- Add authentication
-- Add pagination/filtering
-- Docker support
-- Cloud deployment
-
+- Replace CSV storage with a real database (PostgreSQL / MongoDB / SQLite)
+- Add authentication and authorization (JWT-based login system)
+- Implement pagination and filtering for transactions
+- Add sorting (by date, amount, status, etc.)
+- Implement search functionality (e.g. by account number or name)
+- Improve backend concurrency handling (avoid race conditions when writing to CSV/database)
+- Add Docker support for both backend and frontend
+- Implement proper environment configuration (.env files)
+- Add cloud deployment (e.g. Vercel for frontend, Render/AWS for backend)
 ---
