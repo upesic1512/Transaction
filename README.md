@@ -20,13 +20,12 @@ transaction/
 │   └── transactions.csv
 └── frontend/
     ├── src/
-    │   ├── api/
     │   ├── components/
     │   ├── hooks/
+    │   ├── api/
     │   └── styles/
     ├── App.jsx
-    ├── main.jsx
-    └── package.json
+    └── main.jsx
 
 ---
 
