@@ -1,0 +1,15 @@
+.toast {
+  position: fixed;
+  bottom: 24px; right: 24px;
+  padding: 12px 20px;
+  border-radius: var(--r-md);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow-md);
+  z-index: 999;
+  animation: toastIn 220ms var(--ease) both;
+}
+@keyframes toastIn { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+.success { background: var(--settled-bg); color: var(--settled-fg); border-color: var(--settled-ring); }
+.error   { background: var(--failed-bg);  color: var(--failed-fg);  border-color: var(--failed-ring); }
