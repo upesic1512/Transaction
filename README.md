@@ -2,77 +2,137 @@
 
 ## Overview
 
-This is a full-stack Transaction Management System that allows users to view and add financial transactions.
+This is a full-stack Transaction Management System for managing financial transactions.
 
-It consists of a Python backend API, a React frontend application, and CSV file storage used as a simple database.
-
-No authentication or complex configuration is required.
+It consists of:
+- Python backend API
+- React (Vite) frontend
+- CSV file storage (no database)
 
 ---
 
 ## Project Structure
 
 transaction/
-├── backend/
-│   ├── main.py
-│   ├── requirements.txt
-│   └── transactions.csv
-└── frontend/
-    ├── src/
-    │   ├── api/transactions.js
-    │   ├── components/
-    │   │   ├── AddTransactionModal.jsx
-    │   │   ├── FormField.jsx
-    │   │   ├── StatusBadge.jsx
-    │   │   ├── Toast.jsx
-    │   │   └── TransactionTable.jsx
-    │   ├── hooks/
-    │   │   ├── useTransactionForm.js
-    │   │   └── useTransactions.js
-    │   ├── styles/global.css
-    │   ├── App.jsx
-    │   ├── App.module.css
-    │   └── main.jsx
-    ├── vite.config.js
-    └── package.json
+
+backend/
+│
+│ main.py
+│ requirements.txt
+│ transactions.csv
+│
+frontend/
+│
+├── src/
+│ ├── api/
+│ │ └── transactions.js
+│ │
+│ ├── components/
+│ │ ├── AddTransactionModal.jsx
+│ │ ├── FormField.jsx
+│ │ ├── StatusBadge.jsx
+│ │ ├── Toast.jsx
+│ │ └── TransactionTable.jsx
+│ │
+│ ├── hooks/
+│ │ ├── useTransactionForm.js
+│ │ └── useTransactions.js
+│ │
+│ ├── styles/
+│ │ └── global.css
+│ │
+│ ├── App.jsx
+│ ├── App.module.css
+│ └── main.jsx
+│
+├── vite.config.js
+└── package.json
 
 ---
 
 ## Prerequisites
 
-Before running the project you need to install:
-Python (version 3.10 or higher)
-Node.js (LTS version recommended)
-Git (optional)
+You need to install:
+
+- Python (3.10+)
+- Node.js (LTS version)
+- Git (optional)
 
 ---
 
 ## Backend Setup (Python API)
 
-First, install Python from python.org/downloads and make sure to check "Add Python to PATH" during installation. You can verify installation by running python --version in your terminal.
+### Install Python
+Download: https://python.org/downloads
 
-Then navigate to the backend folder and install dependencies using pip install -r requirements.txt.
+During installation:
+✔ Check "Add Python to PATH"
 
-After installation, start the backend server by running python main.py. The backend will run on http://localhost:8000.
+Verify installation:
+python --version
+
+---
+
+### Install dependencies
+
+Run:
+
+cd backend
+pip install -r requirements.txt
+
+---
+
+### Start backend server
+
+Run:
+
+python main.py
+
+Backend runs on:
+http://localhost:8000
 
 ---
 
 ## Frontend Setup (React + Vite)
 
-Install Node.js from nodejs.org (LTS version). Verify installation using node --version and npm --version.
+### Install Node.js
+Download: https://nodejs.org (LTS version)
 
-Then navigate to the frontend folder and install dependencies using npm install.
+Verify:
 
-Start the frontend application using npm run dev. The frontend will run on http://localhost:5173.
+node --version
+npm --version
+
+---
+
+### Install dependencies
+
+Run:
+
+cd frontend
+npm install
+
+---
+
+### Start frontend
+
+Run:
+
+npm run dev
+
+Frontend runs on:
+http://localhost:5173
 
 ---
 
 ## API Documentation
 
-GET /transactions
-Returns all transactions stored in the CSV file.
+### GET /transactions
 
-Example response:
+Returns all transactions.
+
+Response example:
+
 [
   {
     "transaction_date": "2025-03-01",
@@ -85,10 +145,12 @@ Example response:
 
 ---
 
-POST /transactions
+### POST /transactions
+
 Adds a new transaction.
 
-Request body example:
+Request body:
+
 {
   "transaction_date": "2026-01-01",
   "account_number": "1234-5678-9999",
@@ -96,63 +158,82 @@ Request body example:
   "amount": 100.50
 }
 
-The backend automatically assigns a random status: Pending, Settled, or Failed, and saves the transaction into the CSV file.
+Backend automatically assigns:
+- Pending
+- Settled
+- Failed
+
+and saves to CSV file.
 
 ---
 
-## Data Format
+## CSV Data Format
 
-Transactions are stored in a CSV file in the following format:
-Transaction Date, Account Number, Account Holder Name, Amount, Status
+Transaction Date | Account Number | Account Holder Name | Amount | Status
 
 Example:
-2025-03-01, 7289-3445-1121, Maria Johnson, 150.00, Settled
+2025-03-01 | 7289-3445-1121 | Maria Johnson | 150.00 | Settled
 
 ---
 
 ## Features
 
-The application includes:
-A transaction table displaying all records
-A modal form for adding new transactions
-Status indicators (Pending, Settled, Failed)
-Automatic UI update after adding a transaction
+- Transaction table
+- Add transaction modal
+- Status badges:
+  - Pending (yellow)
+  - Settled (green)
+  - Failed (red)
+- Auto update after adding transaction
 
 ---
 
-## How to Run the Project
+## How to Run Everything
 
-To run the full application:
+Backend:
 
-Start backend: navigate to backend folder, install requirements, and run python main.py
-Start frontend: navigate to frontend folder, run npm install, then npm run dev
-Open browser at http://localhost:5173
+cd backend
+pip install -r requirements.txt
+python main.py
+
+Frontend:
+
+cd frontend
+npm install
+npm run dev
+
+Open:
+http://localhost:5173
 
 ---
 
 ## Testing Flow
 
-Start backend server
-Start frontend application
-Open application in browser
-View transactions table
-Add a new transaction using the form
-Verify that the new transaction appears in the table
+1. Start backend
+2. Start frontend
+3. Open browser
+4. View transactions
+5. Add new transaction
+6. See update in table
 
 ---
 
 ## Technical Notes
 
-The project does not use a database; all data is stored in a CSV file. There is no authentication system. The backend is a simple REST API, while the frontend uses React hooks for state management. Communication between frontend and backend is handled via API calls.
+- No database (CSV only)
+- No authentication
+- Simple REST API
+- React hooks for state management
+- API calls between frontend and backend
 
 ---
 
 ## Possible Improvements
 
-This project can be improved by adding a real database such as PostgreSQL or MongoDB, implementing authentication, adding pagination and filtering, improving form validation, containerizing with Docker, and deploying to cloud platforms such as Vercel or Render.
+- Add real database (PostgreSQL / MongoDB)
+- Add authentication
+- Add pagination/filtering
+- Docker support
+- Cloud deployment
 
 ---
-
-## License
-
-This project is intended for educational and demo purposes only.
